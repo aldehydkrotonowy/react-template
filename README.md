@@ -44,3 +44,26 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+na nowym lapku dell
+dodałem wygenerowane klucze (ssh-keygen -t ed25519 -b 4096 -f ~/.ssh/aldehydkrotonowy/dellAcce -C "norbert.gajda@gmail.com") do githuba
+dodałem plik config do folderu .ssh o zawartości
+#aldehydkrotonowy
+Host github.com-aldehydkrotonowy
+HostName github.com
+PreferredAuthentications publickey
+AddKeysToAgent yes
+User git
+IdentityFile ~/.ssh/path/to/key
+odpaliłem eval $(ssh-agent -s)
+dodałem klucz do agenta ssh-add ~/.ssh/path/to/key
+sprawdziłem że klucz jest dodany ssh-add -l -E sha256 (SHA256:kT9GRSkx97)
+
+automatycznie, utworzyć plik .bashrc w ~ i dodać tam
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+echo "Initialising new SSH agent..."
+eval `ssh-agent -s`
+ssh-add ~/.ssh/path/to/keys
+echo "checking"
+ssh-add -l -E sha256
+fi
