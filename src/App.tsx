@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MyReact from './playground/react-hooks-ex/custom-hook';
+import MyComponent from './playground/react-hooks-ex/myComponent';
+
+const MyApp = MyReact.render(MyComponent);
 
 function App() {
   return (
